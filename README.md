@@ -13,7 +13,8 @@ Detects authentication failures and suspicious login activity patterns from log 
   
       ```python src/authwatch/authwatch.py --input sample_logs/auth.log --stats```
 
-- CI Wrapper Example
+- CI Wrapper Example:
+  
       ```python ci_run_authwatch.py --authwatch src/authwatch/authwatch.py --input sample_logs/auth.log --max-high 0 --authwatch-args "--stats"```
 
 ### 2 ) log-grepper-v1
@@ -25,4 +26,3 @@ A fast “grep-like” log scanner that finds matches in log files and can optio
   
       ```python loggrep.py sample.log -r "failed password" --ignore-case --jsonl hits.jsonl```
       ```python .\main.py --help```
-      
