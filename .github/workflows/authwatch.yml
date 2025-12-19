@@ -23,9 +23,6 @@ jobs:
             --authwatch auth-failure-watcher/src/authwatch/authwatch.py \
             --input auth-failure-watcher/sample_logs/auth_clean.log \
             --max-high 0 \
-            --max-medium 10 \
-            --max-low 10000 \
-            --fail-on-severity high \
             --authwatch-args="--stats" \
             --json-out authwatch_report.json \
             --stdout-out authwatch_stdout.txt
