@@ -1,0 +1,40 @@
+name: authwatch (Week3 Day1)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  authwatch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run authwatch CI wrapper (clean log)
+        run: |
+          python auth-failure-watcher/ci_run_authwatch.py \
+            --authwatch auth-failure-watcher/src/authwatch/authwatch.py \
+            --input auth-failure-watcher/sample_logs/auth_clean.log \
+            --max-high 0 \
+            --max-medium 10 \
+            --max-low 10000 \
+            --fail-on-severity high \
+            --authwatch-args="--stats" \
+            --json-out authwatch_report.json \
+            --stdout-out authwatch_stdout.txt
+
+      - name: Upload authwatch artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: authwatch-artifacts
+          path: |
+            authwatch_report.json
+            authwatch_stdout.txt
