@@ -1,0 +1,24 @@
+2024-12-01T10:08:00Z INFO  user=alice ip=10.0.0.12 action=login msg=login ok
+2024-12-01T10:08:10Z INFO  user=bob ip=10.0.0.22 action=logout msg=logout ok
+2024-12-01T10:08:30Z WARN  service=db ip=10.0.0.5 msg=slow query latency_ms=1200
+2024-12-01T10:09:01Z ERROR service=db ip=10.0.0.5 msg=timeout query="SELECT * FROM users"
+2024-12-01T10:09:20Z INFO  service=api ip=172.16.4.9 method=GET path=/health status=200 latency_ms=12
+2024-12-01T10:09:55Z WARN  service=api ip=172.16.4.9 method=GET path=/v1/data status=429 msg=rate limited
+2024-12-01T10:10:11Z ERROR service=api ip=172.16.4.9 method=POST path=/login status=401 msg=Failed login for user ALICE
+2024-12-01T10:10:20Z ERROR service=api ip=172.16.4.9 method=POST path=/login status=401 msg=Failed login for user bob
+2024-12-01T10:10:45Z INFO  service=api ip=172.16.4.9 method=GET path=/v1/profile status=200 latency_ms=55
+2024-12-01T10:11:05Z ERROR service=auth ip=22.1.5.9 msg=FAILED PASSWORD user=root protocol=ssh
+2024-12-01T10:11:06Z ERROR service=auth ip=22.1.5.9 msg=Failed Password user=admin protocol=ssh
+2024-12-01T10:11:07Z WARN  service=auth ip=22.1.5.9 msg=invalid user user=test protocol=ssh
+2024-12-01T10:11:30Z INFO  service=auth ip=22.1.5.9 msg=login ok user=admin protocol=ssh
+2024-12-01T10:12:00Z ERROR service=kernel ip=127.0.0.1 msg=panic code=0xDEAD
+2024-12-01T10:12:10Z INFO  service=scanner ip=192.168.1.50 msg=vuln scan started target=api
+2024-12-01T10:12:40Z WARN  service=scanner ip=192.168.1.50 msg=found outdated package package=openssl version=1.0.2
+2024-12-01T10:13:10Z ERROR service=scanner ip=192.168.1.50 msg=exploit attempt blocked rule=SQLi
+2024-12-01T10:13:20Z INFO  service=api ip=172.16.4.9 method=GET path=/admin status=403 msg=access denied user=bob
+2024-12-01T10:13:55Z ERROR service=api ip=172.16.4.9 method=GET path=/admin status=500 msg=Unhandled exception trace_id=abc123
+2024-12-01T10:14:10Z info  service=api ip=172.16.4.9 msg=lowercase level (to test case sensitivity)
+BADLINE this line has no timestamp or level (to test parser robustness later)
+2024-12-01T10:15:00Z ERROR Failed login for user charlie ip=203.0.113.10
+2024-12-01T10:15:05Z WARN  Slow response from database (again)
+2024-12-01T10:15:10Z ERROR failed password for user dave (lowercase phrase)
