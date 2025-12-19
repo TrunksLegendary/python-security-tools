@@ -11,16 +11,18 @@ Detects authentication failures and suspicious login activity patterns from log 
 - Folder: `auth-failure-watcher/`
 - Run (example):
   
-      ```bash python src/authwatch/authwatch.py --input sample_logs/auth.log --stats```
+      ```python src/authwatch/authwatch.py --input sample_logs/auth.log --stats```
 
-### 2 ) auth-failure-watcher
+- CI Wrapper Example
+      ```python ci_run_authwatch.py --authwatch src/authwatch/authwatch.py --input sample_logs/auth.log --max-high 0 --authwatch-args "--stats"```
 
-Detects authentication failures and suspicious login activity patterns from log files.
+### 2 ) log-grepper-v1
+
+A fast “grep-like” log scanner that finds matches in log files and can optionally write results to JSONL.
 
 - Folder: `log-grepper-v1/`
 - Run (example):
   
-      ```bash python .\main.py --input sample_logs/app.log --keyword ERROR```
-
-      ```bash python .\main.py --help```
-  
+      ```python loggrep.py sample.log -r "failed password" --ignore-case --jsonl hits.jsonl```
+      ```python .\main.py --help```
+      
