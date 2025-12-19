@@ -2,3 +2,7 @@
 *.pyc
 .venv/
 .pytest_cache/
+
+# authwatch CI/local artifacts
+auth-failure-watcher/authwatch_report.json
+auth-failure-watcher/authwatch_stdout.txt
