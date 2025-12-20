@@ -14,7 +14,7 @@ Run (from repo root):
 
 ```bash
 python auth-failure-watcher/src/authwatch/authwatch.py --input auth-failure-watcher/sample_logs/auth.log --stats```
-
+![alt text](image.png)
 ## 2) log-grepper-v1
 
 A fast “grep-like” log scanner that searches for keywords/regex patterns in log files and can output results as JSONL.```
