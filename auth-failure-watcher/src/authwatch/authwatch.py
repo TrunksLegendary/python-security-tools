@@ -27,10 +27,6 @@ class Rule:
       
 def severity_ok(sev: str, min_sev: str) -> bool:
     return SEV_RANK.get(sev, 0) >= SEV_RANK.get(min_sev, 0)
-      
-def extract_ip(line: str) -> Optional[str]:
-    m = IP_RE.search(line)
-    return m.group("ip") if m else None
 
 def extract_user(line: str) -> Optional[str]:
     m = USER_RE.search(line)
@@ -129,18 +125,6 @@ def normalize_ip(ip: str) -> Optional[str]:
     if any(n < 0 or n > 255 for n in nums):
         return None
     return ".".join(str(n) for n in nums)
-
-    parts = ip.split(".")
-    if len(parts) != 4:
-        return ip
-    try:
-        nums = [str(int(p)) for p in parts]  # int() removes leading zeros
-    except ValueError:
-        return ip
-    # optional: ensure 0-255
-    if any(int(n) < 0 or int(n) > 255 for n in nums):
-        return ip
-    return ".".join(nums)
 
 def extract_ip(line: str) -> Optional[str]:
     m = IP_RE.search(line)

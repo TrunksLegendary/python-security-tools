@@ -1,0 +1,12 @@
+===== STDOUT (auth_clean.log) =====
+[low] accepted_password :: Dec 10 10:16:01 server sshd[1300]: Accepted password for alice from 10.0.0.5 port 60000 ssh2
+[low] accepted_password :: Dec 10 10:16:12 server sshd[1305]: Accepted password for bob from 10.0.0.6 port 60001 ssh2
+[low] accepted_password :: Dec 10 10:16:22 server sshd[1310]: Accepted password for charlie from 10.0.0.7 port 60002 ssh2
+
+--- stats ---
+accepted_password: 3
+
+Top IPs:
+10.0.0.5: 1
+10.0.0.6: 1
+10.0.0.7: 1

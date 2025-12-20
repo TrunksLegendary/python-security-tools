@@ -1,0 +1,48 @@
+{
+  "tool": "authwatch",
+  "generated_at_utc": "2025-12-19T22:00:30Z",
+  "status": "pass",
+  "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 3,
+    "unknown": 0
+  },
+  "thresholds": {
+    "fail_on_severity": "high",
+    "max_high": 0,
+    "max_medium": 10,
+    "max_low": 10000
+  },
+  "filters": {
+    "ignore_type": [],
+    "ignore_severity": []
+  },
+  "runs": [
+    {
+      "input": "\\\\raspberrypi\\shared\\githubCode\\PythonSecurityTools\\auth-failure-watcher\\sample_logs\\auth_clean.log",
+      "returncode": "0",
+      "cmd": "'C:\\Program Files\\Python313\\python.exe' '\\\\raspberrypi\\shared\\githubCode\\PythonSecurityTools\\auth-failure-watcher\\src\\authwatch\\authwatch.py' --input '\\\\raspberrypi\\shared\\githubCode\\PythonSecurityTools\\auth-failure-watcher\\sample_logs\\auth_clean.log' --stats"
+    }
+  ],
+  "findings_sample": [
+    {
+      "severity": "low",
+      "raw": "[low] accepted_password :: Dec 10 10:16:01 server sshd[1300]: Accepted password for alice from 10.0.0.5 port 60000 ssh2",
+      "event_type": "accepted_password"
+    },
+    {
+      "severity": "low",
+      "raw": "[low] accepted_password :: Dec 10 10:16:12 server sshd[1305]: Accepted password for bob from 10.0.0.6 port 60001 ssh2",
+      "event_type": "accepted_password"
+    },
+    {
+      "severity": "low",
+      "raw": "[low] accepted_password :: Dec 10 10:16:22 server sshd[1310]: Accepted password for charlie from 10.0.0.7 port 60002 ssh2",
+      "event_type": "accepted_password"
+    }
+  ],
+  "total_findings": 3,
+  "stdout_artifact": "authwatch_stdout.txt"
+}
