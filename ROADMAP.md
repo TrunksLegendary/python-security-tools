@@ -7,5 +7,3 @@
 ### 2) Simplify the IP extraction/normalization helpers
 
 ### 3) Consider expanding tests for the auth watcher’s dedupe/stats behavior if the functionality changes
-
-### notes) Testing not run (not requested)
